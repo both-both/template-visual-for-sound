@@ -40,6 +40,21 @@ export function createMapping(texture) {
         );
     }
 
+    window.addEventListener('pointerdown', (e) => {
+        const mouse = toScreen(e);
+        active = corners.find((c) => c.distanceTo(mouse) < 0.05) ?? null;
+    });
+
+    window.addEventListener('pointermove', (e) => {
+        if (!active) return;
+        active.copy(toScreen(e));
+        update()
+    });
+
+    window.addEventListener('pointerup', () => {
+        active = null;
+    });
+
     return { mesh };
 }
 
