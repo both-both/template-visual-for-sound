@@ -6,7 +6,7 @@ import { createMapping } from './mapping.js';
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x333333);
+renderer.setClearColor(0x000000);
 document.body.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
